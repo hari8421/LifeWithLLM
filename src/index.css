@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 210 20% 92%;
+    --card: 240 8% 7%;
+    --card-foreground: 210 20% 92%;
+    --primary: 82 78% 55%;
+    --primary-foreground: 82 40% 8%;
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 240 6% 12%;
+    --muted-foreground: 215 12% 60%;
+    --accent: 240 6% 14%;
+    --accent-foreground: 210 20% 92%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 240 6% 16%;
+    --input: 240 6% 16%;
+    --ring: 82 78% 55%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    background-image: radial-gradient(
+        1200px 600px at 80% -10%,
+        hsl(82 78% 55% / 0.07),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 500px at 0% 110%,
+        hsl(190 90% 45% / 0.06),
+        transparent 60%
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer utilities {
+  .grid-bg {
+    background-image: linear-gradient(
+        to right,
+        hsl(var(--border) / 0.5) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .prose-assistant h1 {
+    @apply mb-3 mt-5 text-xl font-semibold;
+  }
+  .prose-assistant h2 {
+    @apply mb-2 mt-4 text-lg font-semibold;
+  }
+  .prose-assistant h3 {
+    @apply mb-2 mt-3 text-base font-semibold;
+  }
+  .prose-assistant p {
+    @apply my-2 leading-relaxed;
+  }
+  .prose-assistant ul {
+    @apply my-2 list-disc space-y-1 pl-5;
+  }
+  .prose-assistant ol {
+    @apply my-2 list-decimal space-y-1 pl-5;
+  }
+  .prose-assistant li {
+    @apply leading-relaxed;
+  }
+  .prose-assistant code {
+    @apply rounded bg-muted px-1.5 py-0.5 font-mono text-[0.85em];
+  }
+  .prose-assistant pre {
+    @apply my-3 overflow-x-auto rounded-lg border bg-muted p-3 font-mono text-xs;
+  }
+  .prose-assistant a {
+    @apply text-primary underline underline-offset-2;
+  }
+  .prose-assistant strong {
+    @apply font-semibold text-foreground;
+  }
+  .prose-assistant blockquote {
+    @apply my-2 border-l-2 border-primary/50 pl-3 text-muted-foreground;
+  }
+}
