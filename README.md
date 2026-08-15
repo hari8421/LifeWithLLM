@@ -14,6 +14,10 @@ own writing style.
 - **Coupon finder** — finds promo codes for a store.
 - **Post in your style** — learns your writing voice from samples and drafts
   posts for X, LinkedIn, Facebook Pages, Instagram, and Reddit.
+- **Resume builder & review** — turns your raw experience into a polished
+  resume and gives an ATS-style review with a score and rewrite suggestions.
+- **Job search** — finds live openings for a role and location, then summarizes
+  the best matches with apply links.
 - **Background jobs** — every run is tracked, and scheduled posts are processed
   by a Convex cron. Platform publishing is enabled once OAuth credentials are configured.
 

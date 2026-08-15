@@ -89,4 +89,21 @@ export default defineSchema({
     createdAt: v.number(),
     completedAt: v.optional(v.number()),
   }).index("by_userId", ["userId"]),
+
+  resumes: defineTable({
+    userId: v.id("users"),
+    title: v.string(),
+    content: v.string(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }).index("by_userId", ["userId"]),
+
+  jobSearches: defineTable({
+    userId: v.id("users"),
+    query: v.string(),
+    location: v.string(),
+    content: v.string(),
+    sources: v.array(v.object({ title: v.string(), url: v.string() })),
+    createdAt: v.number(),
+  }).index("by_userId", ["userId"]),
 });

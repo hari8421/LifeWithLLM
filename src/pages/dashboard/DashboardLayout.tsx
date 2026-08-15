@@ -2,6 +2,7 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuthActions } from "@convex-dev/auth/react";
 import {
   Bot,
+  Briefcase,
   Clock,
   Home,
   LogOut,
@@ -11,16 +12,25 @@ import {
   Settings,
   ShoppingCart,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const nav = [
+type NavItem = {
+  to: string;
+  label: string;
+  icon: LucideIcon;
+  hideMobile?: boolean;
+};
+
+const nav: NavItem[] = [
   { to: "/app", label: "Overview", icon: Home },
   { to: "/app/chat", label: "Chat", icon: MessageSquare },
   { to: "/app/research", label: "Research", icon: Search },
   { to: "/app/shopping", label: "Shopping", icon: ShoppingCart },
   { to: "/app/social", label: "Social", icon: PenLine },
-  { to: "/app/jobs", label: "Jobs", icon: Clock },
+  { to: "/app/career", label: "Career", icon: Briefcase },
+  { to: "/app/jobs", label: "Activity", icon: Clock, hideMobile: true },
   { to: "/app/settings", label: "Settings", icon: Settings },
 ];
 
@@ -104,22 +114,24 @@ export default function DashboardLayout() {
 
       {/* Bottom nav (mobile) */}
       <nav className="fixed inset-x-0 bottom-0 z-30 flex justify-around border-t bg-card px-2 py-1 md:hidden">
-        {nav.map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            end={item.to === "/app" || item.to === "/app/chat"}
-            className={({ isActive }) =>
-              cn(
-                "flex flex-col items-center gap-0.5 rounded-md px-3 py-1.5 text-[10px]",
-                isActive ? "text-primary" : "text-muted-foreground"
-              )
-            }
-          >
-            <item.icon className="h-4 w-4" />
-            {item.label}
-          </NavLink>
-        ))}
+        {nav
+          .filter((item) => !item.hideMobile)
+          .map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === "/app" || item.to === "/app/chat"}
+              className={({ isActive }) =>
+                cn(
+                  "flex flex-col items-center gap-0.5 rounded-md px-3 py-1.5 text-[10px]",
+                  isActive ? "text-primary" : "text-muted-foreground"
+                )
+              }
+            >
+              <item.icon className="h-4 w-4" />
+              {item.label}
+            </NavLink>
+          ))}
       </nav>
     </div>
   );

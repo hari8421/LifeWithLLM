@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Bot,
+  Briefcase,
   Clock,
   Cpu,
   Globe,
@@ -40,6 +41,11 @@ const features = [
     icon: PenLine,
     title: "Post in your style",
     body: "Feed it your writing samples and it learns your voice — then drafts posts for X, LinkedIn, Facebook, Instagram, and Reddit.",
+  },
+  {
+    icon: Briefcase,
+    title: "Resume & job search",
+    body: "Turn your raw experience into a polished resume, get an ATS-style review, and find live openings matched to your skills.",
   },
   {
     icon: Clock,
@@ -147,9 +153,9 @@ export default function Landing() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg"
           >
-            Research the web, compare prices, find coupons, and post in your own
-            voice — all driven by the LLM on your MacBook. No cloud AI, no data
-            leaving your machine.
+            Research the web, compare prices, find coupons, land your next job,
+            and post in your own voice — all driven by the LLM on your MacBook.
+            No cloud AI, no data leaving your machine.
           </motion.p>
 
           <motion.div

@@ -9,6 +9,7 @@ import ResearchPage from "@/pages/dashboard/ResearchPage";
 import ShoppingPage from "@/pages/dashboard/ShoppingPage";
 import SocialPage from "@/pages/dashboard/SocialPage";
 import JobsPage from "@/pages/dashboard/JobsPage";
+import CareerPage from "@/pages/dashboard/CareerPage";
 import SettingsPage from "@/pages/dashboard/SettingsPage";
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="shopping" element={<ShoppingPage />} />
         <Route path="social" element={<SocialPage />} />
         <Route path="jobs" element={<JobsPage />} />
+        <Route path="career" element={<CareerPage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
       <Route path="*" element={<Landing />} />

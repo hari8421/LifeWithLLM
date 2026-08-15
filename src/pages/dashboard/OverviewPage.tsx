@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Bot,
+  Briefcase,
   CheckCircle2,
   Clock3,
   FileText,
@@ -46,6 +47,13 @@ const actions = [
     eyebrow: "Your voice",
     title: "Draft a social post",
     body: "Create a post that sounds like you, then review and schedule it.",
+  },
+  {
+    to: "/app/career",
+    icon: Briefcase,
+    eyebrow: "Career tools",
+    title: "Resume & job search",
+    body: "Generate a polished resume, get an ATS review, and find live openings.",
   },
 ];
 
@@ -162,7 +170,7 @@ export default function OverviewPage() {
           </div>
           <Link to="/app/jobs">
             <Button variant="ghost" size="sm">
-              View jobs <ArrowRight />
+              View activity <ArrowRight />
             </Button>
           </Link>
         </div>
